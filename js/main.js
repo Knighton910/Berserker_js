@@ -1,10 +1,52 @@
 // A matrix for Javascript learning & enjoyment!
-
 console.log("< 🛡 Berserker is active ⚔️ >");
 
 
+function Person() {}
+
+var nuChild = new Person();
 
 
+//  ---------- [[ Feb 27 lessons ]] ------------------- >>
+// var nuCarModel = {
+//     _name : "prototype SubZeroCoupe"
+// };
+//
+// Object.defineProperty(nuCarModel, "name", {
+//     get: function() {
+//         console.log("Reading name");
+//         return this._name;
+//     },
+//     set: function(value) {
+//         console.log("Setting name to %s", value);
+//         this._name = value;
+//     },
+//     enumerable: true,
+//     configurable: true
+// });
+//
+// var nuAirplaneModel = {};
+//
+// Object.defineProperties(nuAirplaneModel, {
+//    _name : {
+//        value : "JumboPremiumLinerXV-Tokyo",
+//        enumerable : true,
+//        configurable : true,
+//        writable : true
+//    },
+//     name : {
+//        get : function () {
+//            console.log("Reading name");
+//            return this._name;
+//        },
+//         set : function (value) {
+//            console.log("Setting name to %s", value);
+//            this._name = value;
+//         },
+//         enumerable : true,
+//         configurable : true
+//     }
+// });
 
 //  ---------- [[ Feb 26 lessons ]] ------------------- >>
 // var myBooks = {};
@@ -19,15 +61,15 @@ console.log("< 🛡 Berserker is active ⚔️ >");
 //     }
 // };
 //
-var banana = new Object();
-banana.color = "Yellow";
-banana.shape = "long & angular";
-banana.sweetness = 5;
-banana.howSweetAmI = function() {
-    console.log("Hmm Hmm decently so");
-};
-
-console.log("sweetness" in banana); //testing property operator
+// var banana = new Object();
+// banana.color = "Yellow";
+// banana.shape = "long & angular";
+// banana.sweetness = 5;
+// banana.howSweetAmI = function() {
+//     console.log("Hmm Hmm decently so");
+// };
+//
+// console.log("sweetness" in banana); //testing property operator
 
 // var mangoFruit = {
 // //     color: "yellow",
