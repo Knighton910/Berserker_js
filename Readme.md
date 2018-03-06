@@ -1,4 +1,4 @@
 # Berserker_js
 
-![berserker](img/berserker.jpeg)
+![berserker](img/iberserker.png)
 
