@@ -1,6 +1,8 @@
+<img src="img/iberserker.png" width="270" height="250">
+
 # Berserker_js
 
-<img src="img/iberserker.png" width="70" height="50"> Berserker_JS
+Berserker is my canvas for practicing Javascript and locking in concepts in what Im learning pertaining strictly to Javascript
 
 
 
