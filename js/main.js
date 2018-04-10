@@ -1,11 +1,33 @@
 // A matrix for Javascript learning & enjoyment!
 console.log("< 🛡 Berserker is active ⚔️ >");
 
+function bake (degrees) {
+    var message;
 
-function Person() {}
+    if (degrees > 500) {
+        message = "Im not a nuclear reactor!";
+    } else if (degrees < 100) {
+        message = "Im not a refrigerator";
+    } else {
+        message = "It's a nice temperature for me";
+        setMode("bake");
+        setTemp(degrees);
+    }
 
-var nuChild = new Person();
+    return message;
+}
 
+
+function setMode(mode) {
+    console.log(mode);
+}
+
+function setTemp(temp) {
+    return temp;
+}
+
+var status = bake(350);
+console.log(status);
 
 //  ---------- [[ Feb 27 lessons ]] ------------------- >>
 // var nuCarModel = {
