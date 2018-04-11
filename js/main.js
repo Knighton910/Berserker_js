@@ -1,33 +1,80 @@
 // A matrix for Javascript learning & enjoyment!
 console.log("< 🛡 Berserker is active ⚔️ >");
 
-function bake (degrees) {
-    var message;
+function getMostCostEffectiveSolution (score, cost, highscore) {
+    var cost = 100;
+    var index;
 
-    if (degrees > 500) {
-        message = "Im not a nuclear reactor!";
-    } else if (degrees < 100) {
-        message = "Im not a refrigerator";
-    } else {
-        message = "It's a nice temperature for me";
-        setMode("bake");
-        setTemp(degrees);
+    for (var i = 0; i < scores.length; i++) {
+        if (score[i] == highscore) {
+            if (cost > score[i]) {
+                i = score[i];
+                cost = score[i];
+            }
+        }
     }
-
-    return message;
 }
 
+console.log("dribble placeholder");
 
-function setMode(mode) {
-    console.log(mode);
-}
 
-function setTemp(temp) {
-    return temp;
-}
+//  ---------- [[ April 10 lessons ]] ------------------- >>
+// var scores = [60, 50, 60, 58, 54, 54, 58, 50, 52, 54, 48, 69, 34, 55, 51, 52, 44, 51, 69, 64, 66, 55, 52, 61, 46, 31, 57, 52, 44, 18,
+//     41, 53, 55, 61, 51, 44];
+//
+// var highScore = 0;
+// var output;
+//
+// for (var i = 0; i < scores.length; i++) {
+//     output = "Bubble solution #" + i + "score: " + scores[i];
+//     console.log(output);
+//
+//     if (scores[i] > highScore) {
+//         highScore = scores[i];
+//     }
+// }
+//
+// console.log("Bubble tests: " + scores.length);
+// console.log("Highest Bubble score: " + highScore);
+//
+// var bestSolutions = [];
+//
+// for (var j = 0; j < scores.length; ++j) {
+//     if (scores[j] == highScore) {
+//         bestSolutions.push(i);
+//     }
+// }
+//
+// console.log("Solutions with the highest score: " + bestSolutions);
 
-var status = bake(350);
-console.log(status);
+
+// function bake (degrees) {
+//     var message;
+//
+//     if (degrees > 500) {
+//         message = "Im not a nuclear reactor!";
+//     } else if (degrees < 100) {
+//         message = "Im not a refrigerator";
+//     } else {
+//         message = "It's a nice temperature for me";
+//         setMode("bake");
+//         setTemp(degrees);
+//     }
+//
+//     return message;
+// }
+//
+//
+// function setMode(mode) {
+//     console.log(mode);
+// }
+//
+// function setTemp(temp) {
+//     return temp;
+// }
+//
+// var status = bake(350);
+// console.log(status);
 
 //  ---------- [[ Feb 27 lessons ]] ------------------- >>
 // var nuCarModel = {
