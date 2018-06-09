@@ -1,21 +1,82 @@
 // A matrix for Javascript learning & enjoyment!
 console.log("< 🛡 Berserker is active ⚔️ >");
 
-function getMostCostEffectiveSolution (score, cost, highscore) {
-    var cost = 100;
-    var index;
+function assert(value, desc) {
+    let li = document.createElement("li");
+    li.className = value ? "pass" : "fail";
+    li.appendChild(document.createTextNode(desc));
+    document.getElementById("results").appendChild(li);
+}
+window.onload = () => {
+    assert(true, "The test suite is running.");
+    assert(false, "Fail!");
+} //  ----  end of testing section  ----
 
-    for (var i = 0; i < scores.length; i++) {
-        if (score[i] == highscore) {
-            if (cost > score[i]) {
-                i = score[i];
-                cost = score[i];
-            }
-        }
-    }
+
+// Private vars
+function Ninja() {
+    let feints = 0;
+    this.getFeints = function() {
+        return feints;
+    };
+    this.feint = function() {
+        feints++;
+    };
 }
 
-console.log("dribble placeholder");
+let ninja1 = new Ninja();
+ninja1.feint();
+
+assert(ninja1.feints === undefined,
+    "And the private data is inaccessible to us.");
+assert(ninja1.getFeints() === 1,
+    "We're able to access the internal feint count.");
+
+let ninja2 = new Ninja();
+assert(ninja2.getFeints() === 0,
+    "The second ninja object gets its own feints var");
+
+// Spicier closure example
+// let outerVal = "samurai";
+// let later;
+//
+// function outerFunc() {
+//     let innerVal = "ninja";
+//
+//     function innerFunc() {
+//         assert(outerVal === "samurai",
+//             "I can see the samurai");
+//         assert(innerVal === "ninja",
+//             "I can see the ninja.");
+//     }
+//     later = innerFunc();
+// }
+// outerFunc();
+// later();
+
+// Basic closure example
+// let outerValue = 'ninja';
+// function outerFunc() {
+//     assert(outerValue === 'ninja', 'I can see the ninja.');
+//     console.log(outerValue);
+// }
+// outerFunc();
+
+// function getMostCostEffectiveSolution (score, cost, highscore) {
+//     var cost = 100;
+//     var index;
+//
+//     for (var i = 0; i < scores.length; i++) {
+//         if (score[i] == highscore) {
+//             if (cost > score[i]) {
+//                 i = score[i];
+//                 cost = score[i];
+//             }
+//         }
+//     }
+// }
+//
+// console.log("dribble placeholder");
 
 
 //  ---------- [[ April 10 lessons ]] ------------------- >>

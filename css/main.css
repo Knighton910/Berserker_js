@@ -17,21 +17,6 @@ html {
     line-height: 1.4;
 }
 
-.name {
-    color: slateblue;
-    text-align: center;
-    font-size: 45px;
-    font-family: "Permanent Marker", cursive;
-    border-bottom: red solid 10px;
-    margin-bottom: 0;
-}
-
-#hero {
-    width: 35%;
-    height: 400px;
-    margin-left: 300px;
-}
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -113,15 +98,31 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.name {
+    color: slateblue;
+    text-align: center;
+    font-size: 45px;
+    font-family: "Permanent Marker", cursive;
+    border-bottom: red solid 10px;
+    margin-bottom: 0;
+}
 
+#hero {
+    width: 35%;
+    height: 400px;
+    margin-left: 300px;
+}
 
-
-
-
-
-
-
-
+#results li.pass {
+    color: green;
+    font-size: 20px;
+    font-family: "Permanent Marker", cursive;
+}
+#results li.fail {
+    color: red;
+    font-size: 20px;
+    font-family: "Permanent Marker", cursive;
+}
 
 
 
