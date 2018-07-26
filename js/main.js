@@ -1,6 +1,26 @@
 // A matrix for Javascript learning & enjoyment!
 console.log("< 🛡 Berserker is active ⚔️ >");
 
+// refreshing knowledge on the call site - call stack
+// function baz() {
+//     console.log("baz");
+//     bar();
+// }
+// function bar() {
+//     console.log('bar');
+//     foo();
+// }
+// function foo() {
+//     console.log('foo');
+//     boo();
+// }
+// function boo() {
+//     debugger;
+//     console.log('boo!');
+// }
+// baz();
+
+// Custom code Test functionality code
 function assert(value, desc) {
     let li = document.createElement("li");
     li.className = value ? "pass" : "fail";
@@ -13,28 +33,194 @@ window.onload = () => {
 } //  ----  end of testing section  ----
 
 
-// Private vars
-function Ninja() {
-    let feints = 0;
-    this.getFeints = function() {
-        return feints;
-    };
-    this.feint = function() {
-        feints++;
-    };
+// Using a closure in a timer interval callback
+function animateIt(elementId) {
+    let el = document.getElementById(elementId);
+    let tick = 0;
+    let timer = setInterval(function() {
+        if (tick < 100) {
+            el.style.left = el.style.top = tick + "px";
+            tick++;
+        } else {
+            clearInterval(timer);
+            assert(tick === 100,
+                "Tick accessed via a closure")
+        }
+    },10)
 }
+animateIt("box1");
+animateIt("box2");
+// Private vars are accessed through funcs, not through Objs
+//(private vars caveat)
+// function Ninja() {
+//     let feints = 0;
+//     this.getFeints = function () {
+//         return feints;
+//     };
+//     this.feint = function () {
+//         feints++;
+//     };
+// }
+// let ninja1 = new Ninja();
+// ninja1.feint();
 
-let ninja1 = new Ninja();
-ninja1.feint();
+// let imposter = {};
+// imposter.getFeints = ninja1.getFeints;
+// assert(imposter.getFeints() === 1,
+//     "The imposter has access to the feints var!");
 
-assert(ninja1.feints === undefined,
-    "And the private data is inaccessible to us.");
-assert(ninja1.getFeints() === 1,
-    "We're able to access the internal feint count.");
+// Approximate private variables with closures
+// function Ninja() {
+//     let feints = 0;
+//     this.getFeints = function() {
+//         return feints;
+//     };
+//     this.feint = function() {
+//         feints++;
+//     };
+// }
+// let ninja1 = new Ninja();
+// assert(ninja1.feints === undefined,
+//     "And the private data is inaccessible to us.");
+// ninja1.feint();
+// assert(ninja1.getFeints() === 1,
+//     "We're able to access the internal feint count.");
+// let ninja2 = new Ninja();
+// assert(ninja2.getFeints() === 0,
+//     "The second ninja object gets its own feints variable.")
 
-let ninja2 = new Ninja();
-assert(ninja2.getFeints() === 0,
-    "The second ninja object gets its own feints var");
+// Overriding function identifiers
+// assert(typeof fun === "function",
+//     "We access the function");
+// let fun = 3;
+// assert(typeof fun === "number",
+//     "Now we access the number");
+// function fun() {}
+// assert(typeof fun === "number",
+//     "Still a number");
+
+// Accessing a function before its declaration
+// assert(typeof fun === "function",
+//     "fun is a function even though its definition isn't reached yet!");
+
+// assert(typeof myFunExp === "undefined",
+//     "But we cannot access function expressions");
+
+// assert(typeof myArrow === "undefined", "Nor arrow functions");
+
+// function fun() {}
+// let myFunExpr = function() {};
+// let myArrow = (x) => x;
+
+// Using const and let keywords
+// const GLOBAL_NINJA = "Yoshi";
+
+// function reportActivity() {
+//     const funcActivity = "jumping";
+
+//     for(let i=1; i<3; i++) {
+//         let forMsg = GLOBAL_NINJA + " " + funcActivity;
+//         assert(forMsg === "Yoshi jumping", "Yoshi is jumping within the for block");
+//         assert(i, "Current loop counter:" + i);
+//     }
+
+//     assert(typeof i === "undefined" && typeof forMsg === "undefined",
+//         "Loop vars not accessible outside the loop");
+// }
+// reportActivity();
+// assert(typeof funcActivity === "undefined" && typeof i === "undefined" && typeof forMsg === "undefined",
+//     "We cannot see function vars outside of a func");
+
+// Using the var keyword
+// var globalNinja = "Yoshi";
+//
+// function reportActivity() {
+//     var funcActivity = "jumping";
+//
+//     for(var i = 1; i < 3; i++) {
+//         var forMsg = globalNinja + " " + funcActivity;
+//         assert(forMsg === "Yoshi jumping", "Yoshi is jumping within the for block");
+//         assert(i, "Current loop counter: " + i);
+//     }
+//
+//     assert(i === 3 && forMsg === "Yoshi jumping", "Loop variables accessible outside of the loop");
+// }
+// reportActivity();
+// assert(typeof funcActivity === "undefined" && typeof i === "undefined" && typeof forMsg === "undefined",
+//     "We cannot see function variables outside of a function");
+
+// The behaviour of const variables
+// const firstConst = "samurai";
+// assert(firstConst === "samurai", "firstConst is a samurai");
+//
+// try {
+//     firstConst = "ninja";
+//     fail("shouldn't be here");
+// } catch (e) {
+//     pass("An exception has occurred");
+// }
+//
+// assert(firstConst === "samurai", "firstConst is still samurai");
+// const secondConst = {};
+// assert(secondConst.weapon === "wakashai", "we can add new props");
+// const thirdConst = [];
+// assert(thirdConst.length === 0, "No items in our array");
+// thirdConst.push("Yoshi");
+// assert(thirdConst.length === 1, "The array has changed!");
+
+// The creation of execution contexts
+// function skulk(ninja) {
+//     report(ninja + ' skulking');
+// }
+// function report(msg) {
+//     console.log(msg);
+// }
+// skulk('Kuma');
+// skulk('Yoshi');
+
+// Using a closure in a timer interval callback
+// function animateIt (elementId) {
+//     el = document.getElementById(elementId);
+//     tick = 0;
+//     let timer = setInterval(function() {
+//         if (tick < 100) {
+//             el.style.left = el.style.top = tick + 'px';
+//             tick++;
+//         } else {
+//             clearInterval(timer);
+//
+//             assert(tick === 100,
+//                 "tick accessed via a closure");
+//             assert(el,
+//                 "element also accessed via a closure");
+//             assert(timer,
+//                 "Timer reference also obtained via a closure");
+//         }
+//     }, 10);
+// }
+// animateIt('box1');
+
+// Private vars
+// function Ninja() {
+//     let feints = 0;
+//     this.getFeints = function() {
+//         return feints;
+//     };
+//     this.feint = function() {
+//         feints++;
+//     };
+// }
+//
+// let ninja1 = new Ninja();
+// let ninja2 = new Ninja();
+// ninja1.feint();
+//
+// assert(ninja1.feints === undefined,
+//     "And the private data is inaccessible to us.");
+// assert(ninja1.getFeints() === 1,
+//     "We're able to access the internal feint count.");
+// assert(ninja2.getFeints() === 0,
+//     "The second ninja object gets its own feints var");
 
 // Spicier closure example
 // let outerVal = "samurai";
